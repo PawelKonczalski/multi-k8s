@@ -8,11 +8,11 @@ env:
 before_install:
     - curl https://sdk.cloud.google.com | bash > /dev/null;
     - source $HOME/google-cloud-sdk/path.bash.inc
-    - gcloud components update kubectl
-    - gcloud auth activate-service-account --key-file service-account.json
-    - gcloud config set project <projectId>
-    - gcloud config computer/zone <zone>
-    - gcloud container clusters get-credentials <clusterName>
+    # - gcloud components update kubectl
+    # - gcloud auth activate-service-account --key-file service-account.json
+    # - gcloud config set project <projectId>
+    # - gcloud config computer/zone <zone>
+    # - gcloud container clusters get-credentials <clusterName>
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - docker build -t pawelkonczalski/react-test -f ./client/Deckerfile.dev ./client
 script:
